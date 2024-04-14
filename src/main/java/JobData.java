@@ -48,7 +48,7 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> copyOfAllJobs = new ArrayList<>();
-        for (HashMap<String, String> job :allJobs){
+        for (HashMap<String, String> job : allJobs) {
             HashMap<String, String> copyOfIndividualJob = new HashMap<>(job);
             copyOfAllJobs.add(copyOfIndividualJob);
         }
@@ -99,10 +99,8 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            for (String cell : row.values()) {
-                if (cell.toLowerCase().contains(value.toLowerCase())) {
-                    jobs.add(row);
-                }
+            if (row.toString().toLowerCase().contains(value.toLowerCase())) {
+                jobs.add(row);
             }
         }
         return jobs;
