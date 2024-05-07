@@ -99,8 +99,12 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            if (row.toString().toLowerCase().contains(value.toLowerCase())) {
-                jobs.add(row);
+            for (String cell : row.values()) {
+                if (cell.toLowerCase().contains(value.toLowerCase())) {
+                    if (!jobs.contains(row)) {
+                        jobs.add(row);
+                    }
+                }
             }
         }
         return jobs;
